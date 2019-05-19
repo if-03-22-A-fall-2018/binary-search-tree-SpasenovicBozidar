@@ -39,32 +39,58 @@ return newBst;
 }
 
 void delete_bst(Bst bst){
-
+  if(bst!=0)
+  {
+    delete_bst(bst->left);
+    delete_bst(bst->right);
+    sfree(bst);
+}
 }
 
 /**
 *** @return The depth of the BST
 */
 int get_depth(Bst bst){
+  if(bst==0)
+  {
+    return 0;
+  }
+  else
+  {
+    int ldepth=get_depth(bst->left);
+    int rdepth=get_depth(bst->right);
 
+    if(ldepth>rdepth)
+    {
+      return ldepth+1;
+    }
+    else
+    {
+      return rdepth+1;
+    }
+}
 }
 
 /**
 *** Adds a value to the BST
 */
 void add(Bst* bst, int value){
-  if ((*bst) == 0) {
-    Bst newBst =(Bst)malloc(sizeof(struct Node));
-    newBst->left = 0;
-    newBst->right = 0;
-    newBst->value = value;
-    *bst = newBst;
+  if((*bst)==0)
+  {
+    Bst currBst=(Bst)malloc(sizeof(struct Node));
+    currBst->left=0;
+    currBst->right=0;
+    currBst->value=value;
+    *bst=currBst;
   }
-  else if(value<=(*bst)->value){
-    add(&(*bst)->left, value);
+  else if(value<=(*bst)->value)
+  {
+    add(&(*bst)->left,value);
   }
   else
-    add(&(*bst)->right, value);
+  {
+    add(&(*bst)->right,value);
+}
 
 }
 
@@ -147,9 +173,8 @@ bool are_equal(Bst bst1, Bst bst2){
 }
 
 void most_left_longest_branch(Bst bst, Bst* branch){
-
-}
+  }
 
 int get_number_of_subtrees(Bst bst){
-
+  return 0;
 }
