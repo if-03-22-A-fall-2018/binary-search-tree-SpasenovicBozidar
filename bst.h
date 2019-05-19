@@ -10,10 +10,14 @@
  * <Add description>
  * ----------------------------------------------------------
  */
-#ifndef ___BST_H
+ #include <stdlib.h>
+ #include <stdio.h>
+#include "general.h"
+ #ifndef ___BST_H
 #define ___BST_H
 
 typedef struct Node* Bst;
+int countElements(Bst bst);
 
 /**
 *** Initializes the binary search tree. Deletes all existing nodes in the tree
