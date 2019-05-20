@@ -20,11 +20,7 @@ struct Node
   struct Node* left;
   struct Node* right;
 };
-int countElements(Bst bst){
-  int count = 0;
 
-  return count;
-}
 /**
 *** Initializes the binary search tree. Deletes all existing nodes in the tree
 *** @return The number of deleted nodes
@@ -77,11 +73,11 @@ int get_depth(Bst bst){
 void add(Bst* bst, int value){
   if((*bst)==0)
   {
-    Bst currBst=(Bst)malloc(sizeof(struct Node));
-    currBst->left=0;
-    currBst->right=0;
-    currBst->value=value;
-    *bst=currBst;
+    Bst newBst=(Bst)malloc(sizeof(struct Node));
+    newBst->left=0;
+    newBst->right=0;
+    newBst->value=value;
+    *bst=newBst;
   }
   else if(value<=(*bst)->value)
   {
@@ -166,15 +162,16 @@ bool are_equal(Bst bst1, Bst bst2){
   {
       if(bst1->value == bst2->value)
       {
-        return are_equal(bst1->left, bst2->left) && are_equal(bst1->right, bst2->right);
+        return (are_equal(bst1->left, bst2->left)) && (are_equal(bst1->right, bst2->right));
       }
   }
     return false;
 }
 
 void most_left_longest_branch(Bst bst, Bst* branch){
-  }
+
+}
 
 int get_number_of_subtrees(Bst bst){
-  return 0;
+    
 }
